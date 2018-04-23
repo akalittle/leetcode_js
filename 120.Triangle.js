@@ -25,10 +25,8 @@ function triangle(triangle) {
     let t = triangle.length - 2;
     let _index = index;
     while (t > -1) {
-      let left = _index - 1;
-      let right = _index;
-      if (left < 0) left = 0;
-      if (right > t) right = t;
+      let left = _index - 1 < 0 ? 0 : _index - 1;
+      let right = _index > t ? t : _index;
       const minus = Math.min(triangle[t][left], triangle[t][right]);
       init[index] += minus;
       faker[index].push(minus);
@@ -41,10 +39,10 @@ function triangle(triangle) {
 }
 
 const test = [
-      [2],
-     [3, 4],
-    [6, 5, 7],
-   [4, 1, 8, 3],
+  [2],
+  [3, 4],
+  [6, 5, 7],
+  [4, 1, 8, 3],
   [1, 2, 3, 4, 5]
 ];
 
